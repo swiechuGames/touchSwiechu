@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top 1 Gooner Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img id="swiechu" src="MAINSWIECHU.png">
+    <div class="hitbox mainbox" onclick="changeTo('swiechublush.png','nya.mp3')"></div>
+    <div class="hitbox penis" onclick="changeTo('swiechusus.png','moan.mp3','susanim')"></div>
+
+    <script>
+        function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        var swiechu = document.getElementById("swiechu")
+        var mainimg = "noblush.png"
+
+        var on = false
+
+        function animationLoop(i) {
+            setTimeout(function() {
+                swiechu.src = "susanim/"+i+".png"          
+                if (--i) animationLoop(i); 
+            }, 100)
+        }
+
+        function changeTo(img, sound, animation){
+            if (on == false){
+                on = true
+                var snd = new Audio(sound)
+                snd.play()
+                if (animation == "susanim"){
+                    animationLoop(7)
+                }else{
+                    swiechu.src = img
+                }
+                sleep(1500).then(() => {
+                swiechu.src = mainimg
+                on = false
+                })
+            }
+        }
+    </script>
+</body>
+</html>
