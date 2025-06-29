@@ -22,7 +22,7 @@
 
         function animationLoop(i) {
             setTimeout(function() {
-                swiechu.src = "susanim/"+i+".png"          
+                swiechu.src = i+".png"          
                 if (--i) animationLoop(i); 
             }, 100)
         }
