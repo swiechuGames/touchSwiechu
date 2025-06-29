@@ -23,11 +23,16 @@
         var on = false
 
         function animationLoop(i) {
-            setTimeout(function() {
-                swiechu.src = i+".png"          
-                if (--i) animationLoop(i); 
-            }, 100)
+            let img = new Image();
+            img.onload = () => {
+                swiechu.src = img.src;
+                if (--i) {
+                    setTimeout(() => animationLoop(i), 150); // a bit slower
+                }
+            };
+            img.src = i + ".png";
         }
+
 
         function changeTo(img, sound, animation){
             if (on == false){
