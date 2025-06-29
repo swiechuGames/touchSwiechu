@@ -27,7 +27,7 @@
             img.onload = () => {
                 swiechu.src = img.src;
                 if (--i) {
-                    setTimeout(() => animationLoop(i), 10); // a bit slower
+                    setTimeout(() => animationLoop(i), 100); // a bit slower
                 }
             };
             img.src = i + ".png";
